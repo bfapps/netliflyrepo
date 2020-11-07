@@ -184,7 +184,6 @@
                 
             }
             localStorage.setItem('str', str + "00");
-            console.log(str)
             
         }
 
@@ -253,7 +252,6 @@
                 }
                 i = i + 2;
                 c = c + 2;
-                console.log(i);
                 counter++;
             }, 850);
             
@@ -265,7 +263,6 @@
             let pcInput = localStorage.getItem('str').slice(0,10);
             
             let userInput = localStorage.getItem('userStr');
-            console.log(userInput);
             let scoreNumber = document.querySelector(".scoreNumber");
             let currentScore = Number(scoreNumber.textContent);
             if (pcInput === userInput) {
@@ -282,6 +279,7 @@
             }
             localStorage.setItem('inputCounter', 0);
             localStorage.setItem('gameMode', "off");
+            startGame();
         }
           
         
