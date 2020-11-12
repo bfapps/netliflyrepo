@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
     <title>Circle Words Cluster</title>
     <style>
         * {
@@ -39,7 +40,7 @@
                 4px 4px 4px 0px rgba(0, 0, 0, 0.15);
             display: grid;
             place-content: center;
-            font-size: 36px;
+            font-size: 28px;
             color: rgba(3, 3, 3, 0.5);
             cursor: pointer;
             z-index: 5;
@@ -79,7 +80,7 @@
             display: grid;
             place-content: center;
             font-size: 11px;
-            font-weight: 550;
+            font-weight: 500;
         }
         @media (orientation: landscape) and (max-width: 900px) {
             .words-cluster-container {
@@ -104,12 +105,12 @@
 
         @keyframes likeAnime {
             0% {
-                font-size: 56px;
+                font-size: 36px;
                 color: red;
                 
             }
             100% {
-                font-size: 36px;
+                font-size: 28px;
                 color: red;
             }
         }
@@ -117,7 +118,7 @@
 </head>
 <body>
     <div class="words-cluster-container">
-        <div class="plus-icon">♥</div>
+        <div class="plus-icon"><i class="fas fa-heart"></i></div>
         <div class="center-word">
             <p>Introvert</p>
         </div>
