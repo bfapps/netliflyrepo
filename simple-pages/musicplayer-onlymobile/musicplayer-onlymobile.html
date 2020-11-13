@@ -24,6 +24,7 @@
 
         .musicbox {
             width: 375px;
+            height: 145vh;
             max-height: 152vh;
             margin: 0 auto;
             overflow: hidden;
@@ -124,13 +125,16 @@
             height: 8px;
             box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.1),
             inset -4px -4px 4px #fff;
+            display: flex;
+            align-items: center;
         }
         .real-progress-bar {
             width: 65%;
-            height: 100%;
+            height: 50%;
+            margin: 0 4px;
             background-color: red;
-            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.1),
-            inset -2px -2px 4px #fff;
+            /* box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.1),
+            inset -2px -2px 4px #fff; */
         }
         /* conteiner 3 */
         .musicbox-container-3 {
@@ -140,6 +144,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 2px #cccccc solid; 
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
         }
         .extra-icon-holder {
             width: 64px;
@@ -178,7 +184,7 @@
         @media (orientation: landscape) {
             .musicbox {
                 height: 700px;
-                max-height: 800px;
+                max-height: 900px;
             }
             .musicbox-container-4 {
                 max-height: 200px;
