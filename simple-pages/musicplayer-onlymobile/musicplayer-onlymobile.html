@@ -378,17 +378,20 @@
 
         // play audio 
         localStorage.setItem("song-play", "pause");
+        let myAudio = new Audio("https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3");
         function playAudio () {
             let validation = localStorage.getItem("song-play");
+            
             if (validation === "pause") {
                 localStorage.setItem("song-play", "playing");
-                document.getElementById("love_you_like_a_love_song").play();
+                myAudio.play();
+                // document.getElementById("love_you_like_a_love_song").play();
                 
             }
             else if (validation === "playing") {
                 localStorage.setItem("song-play", "pause");
-                document.getElementById("love_you_like_a_love_song").pause();
-                
+                // document.getElementById("love_you_like_a_love_song").pause();
+                myAudio.pause();
             }
         }
 
