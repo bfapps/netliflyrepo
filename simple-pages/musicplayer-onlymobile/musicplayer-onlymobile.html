@@ -81,6 +81,7 @@
         .music-detail-container {
             width: calc(375px - 150px);
             padding-right: 10px;
+            z-index: 25;
         }
         .music-detail-container h4 {
             margin-bottom: 4px;
@@ -97,6 +98,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             text-transform: capitalize;
+            z-index: 24;
         }
         .musicbox-player-container {
             width: 100%;
@@ -216,6 +218,9 @@
         .blue-play-icon {
             color: purple;
         }
+        a{
+            color: #606060;
+        }
         @media (orientation: landscape) {
             .musicbox {
                 height: 700px;
@@ -249,7 +254,7 @@
                 <img src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
             </div>
             <div class="music-detail-container">
-                <h4>love you like a love song</h4>
+                <h4 id="main-music-name">Wolves</h4>
                 <p>Selena Gomez</p>
             </div>
         </div>
@@ -257,23 +262,7 @@
             <div class="musicbox-player-container">
                 <div class="subtitle-container">
                     <div class="exact-subtitle-container">
-                        It's been said and done <br>
-                        Every beautiful thought's been already sung<br>
-                        And I guess right now here's another one<br>
-                        So your melody will play on and on<br>
-                        With the best of 'em<br>
-                        <br>
-                        You are beautiful,<br>
-                        Like a dream come alive, incredible<br>
-                        A centerfold, miracle, lyrical<br>
-                        You've saved my life again.<br>
-                        
-                        And I want you to know baby<br>
-                        I-I love you like a love song, baby<br>
-                        I-I love you like a love song, baby<br>
-                        I-I love you like a love song, baby<br>
-                        And I keep hittin' repeat-peat-peat-peat-peat-peat.<br>
-                        
+                        Subtitle Must Be Here
 
                     </div>
                     <div class="subtitle-container-icons">
@@ -286,7 +275,7 @@
                     <div class="musicbox-forward option-btn"><i class="fas fa-forward    "></i></div>
                     <div class="musicbox-backward option-btn"><i class="fas fa-backward    "></i></div>
                     <div class="musicbox-up option-btn" id="caption-btn"><i class="fas fa-closed-captioning"></i></div>
-                    <div class="musicbox-down option-btn" onclick="openYouTube ()"><i class="fab fa-youtube    "></i></div>
+                    <div class="musicbox-down option-btn"><a id="youtube-link" target="_blank" href="https://www.youtube.com/watch?v=cH4E_t3m3xM"><i class="fab fa-youtube    "></i></a></div>
                 </div>
             </div>
         </div>
@@ -296,17 +285,17 @@
         <div class="musicbox-container-3">
             <div class="extra-icon-holder" id="like-icon"><i class="fas fa-heart    "></i></div>
             <div class="extra-icon-holder"><i class="fa fa-search" aria-hidden="true"></i></div>
-            <div class="extra-icon-holder" id="download-icon"><i class="fas fa-download    "></i></div>
+            <div class="extra-icon-holder" id="download-icon"><a id="download-link" href="https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"><i class="fas fa-download    "></i></a></div>
         </div>
 
         <!-- real music box -->
         <div class="musicbox-container-4">
-            <div class="musicbox-container-1" title="wolves" onclick="changeSong (this.title)">
+            <div class="musicbox-container-1">
                 <div class="music-img-container">
                     <img src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
                 <div class="music-detail-container">
-                    <h4>wolves</h4>
+                    <h4 title="wolves" onclick="changeSong (this.title)">wolves</h4>
                     <p>Selena Gomez</p>
                 </div>
             </div>
@@ -315,7 +304,7 @@
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
                 <div class="music-detail-container">
-                    <h4>same old love</h4>
+                    <h4 title="same old love" onclick="changeSong (this.title)">same old love</h4>
                     <p>Selena Gomez</p>
                 </div>
             </div>
@@ -324,7 +313,7 @@
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
                 <div class="music-detail-container">
-                    <h4>slow down</h4>
+                    <h4 title="slow down" onclick="changeSong (this.title)">slow down</h4>
                     <p>Selena Gomez</p>
                 </div>
             </div>
@@ -333,7 +322,7 @@
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
                 <div class="music-detail-container">
-                    <h4>the heart wants what it wants</h4>
+                    <h4 title="the heart wants what it wants" onclick="changeSong (this.title)">the heart wants what it wants</h4>
                     <p>Selena Gomez</p>
                 </div>
             </div>
@@ -341,13 +330,9 @@
                 <div class="music-img-container">
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
-                <div class="music-detail-container" title="love you like a love song" onclick="changeSong (this.title)">
-                    <h4>love you like a love song</h4>
+                <div class="music-detail-container">
+                    <h4 title="love you like a love song" onclick="changeSong (this.title)">love you like a love song</h4>
                     <p>Selena Gomez</p>
-                    <audio id="love_you_like_a_love_song" style="display: none;">
-                        <source src="" type="audio/ogg">
-                        Your browser does not support the audio element.
-                    </audio>
                 </div>
             </div>
         </div>
@@ -372,29 +357,43 @@
         document.querySelector('.close-subtitle').addEventListener("click", function () {
             document.querySelector('.subtitle-container').style.display = "none";
         })
+        // to copy subtitle option
         document.querySelector(".copy-subtitle").addEventListener("click", function () {
             alert("copied")
         })
-        //  changeSong
-        
+        // function open youtube link 
+            function openYouTube() {
+                window.open("https://www.youtube.com/watch?v=1IdG-t22VmY");
+            }
+
+        // magic happens here ::: first function is related to choosing song and the second function is related to playying or pausing music
+        // setting default values to work as global variables
+        let audioUrl = new Audio("https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3");
+            localStorage.setItem("song-play", "pause");
+
+        //  changeSong function
         function changeSong (title) {
             let myAudio;
-            let totalSongs = SelenaGomez.length;       
+            let totalSongs = SelenaGomez.length;
+            validation = localStorage.getItem('song-play');
+            if (validation === "playing") {
+                localStorage.setItem('song-play', "pause");
+                audioUrl.pause();
+            }       
             for (let i = 0; i < totalSongs; i++) {
                 if (SelenaGomez[i].song === title) {
                     audioUrl = new Audio(SelenaGomez[i].url);
                     localStorage.setItem("audio-url", SelenaGomez[i].url);
-                    // let validation = localStorage.getItem("song-play");
-                    // if (validation === "pause") {
-                    //     localStorage.setItem("song-play", "playing");
-                    //     myAudio.play();
-                    // }
+                    localStorage.setItem('youtube-link', SelenaGomez[i].youtube);
                 }
             }
+            // to change play-icon color
+            document.getElementById('play-icon').classList.remove('blue-play-icon');
+            document.getElementById('play-icon').classList.add('blue-play-icon');
+            // to play selected song
+            playAudio();
         }
-        // play audio
-        let audioUrl = new Audio("https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"); 
-        localStorage.setItem("song-play", "pause");
+        // play audio 
         function playAudio () {    
             let validation = localStorage.getItem("song-play");
             let url = localStorage.getItem('audio-url');
@@ -412,15 +411,30 @@
             }
         }
 
-        // function open youtube link 
-        function openYouTube () {
-            window.open("https://www.youtube.com/watch?v=1IdG-t22VmY");
-        }
+        // to change all values about played song
+        document.querySelectorAll('.music-detail-container').forEach(function (item) {
+            item.addEventListener("click", function (event) {
+                let index = event.target;
+                let songName = index.innerHTML;
+                document.getElementById('main-music-name').innerHTML = songName;
+                let downloadLink = localStorage.getItem("audio-url");
+                document.getElementById('download-link').href = downloadLink;
+                let youtubeLink = localStorage.getItem('youtube-link');
+                document.getElementById('youtube-link').href = youtubeLink;
+            })
+        })
 
         // adressing the songs
         const SelenaGomez = [
-            {song:"love you like a love song", url: "https://ts2.tarafdari.com/contents/user221076/content-sound/01_love_you_like_a_love_song.mp3"},
-            {song: "wolves", url: "https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"}
+            {song:"love you like a love song", url:"https://cdn.begoosh.com/Music/Categories/Foreign/Amirica/01%20love%20you%20like%20a%20love%20song.mp3", youtube:'https://www.youtube.com/watch?v=1IdG-t22VmY'},
+
+            {song: "wolves", url:"https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3", youtube:'https://www.youtube.com/watch?v=cH4E_t3m3xM'},
+
+            {song:"same old love", url:"http://www.alphateach.ir/music/SameOldLove.mp3", youtube:'https://www.youtube.com/watch?list=PL8gsUVA7RytWQseFhi-Tpz3OpB3wycC_J&v=naKhF6G36rM'},
+
+            {song:"slow down", url:"https://cdn.begoosh.com/Music/Categories/Foreign/Amirica/09%20Slow%20Down.mp3", youtube:"https://www.youtube.com/watch?v=zGEf8dXN2sU"},
+
+            {song:"the heart wants what it wants", url:"https://cdn.begoosh.com/Music/Categories/Foreign/Amirica/01%20The%20Heart%20Wants%20What%20It%20Wants.mp3", yotube:'https://www.youtube.com/watch?v=ij_0p_6qTss&list=RDL1q4lp9-iqE&index=6'}
         ];
     </script>
 </body>
