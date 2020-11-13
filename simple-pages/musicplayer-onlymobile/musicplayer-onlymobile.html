@@ -50,7 +50,7 @@
             overflow-y: auto;
             width: 100%;
             height: 260px;
-            line-height: 50px;
+            line-height: 40px;
         }
         .subtitle-container-icons {
             height: 30px;
@@ -257,14 +257,24 @@
             <div class="musicbox-player-container">
                 <div class="subtitle-container">
                     <div class="exact-subtitle-container">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, praesentium odit. Quos, autem culpa. Quia
-                        repudiandae, recusandae eum impedit excepturi a repellendus dolores! Officia ipsam consectetur consequatur modi
-                        non.
-                        Pariatur.
-                        Quos, autem culpa. Quia
-                        repudiandae, recusandae eum impedit excepturi a repellendus dolores! Officia ipsam consectetur consequatur modi
-                        non.
-                        Pariatur.
+                        It's been said and done <br>
+                        Every beautiful thought's been already sung<br>
+                        And I guess right now here's another one<br>
+                        So your melody will play on and on<br>
+                        With the best of 'em<br>
+                        <br>
+                        You are beautiful,<br>
+                        Like a dream come alive, incredible<br>
+                        A centerfold, miracle, lyrical<br>
+                        You've saved my life again.<br>
+                        
+                        And I want you to know baby<br>
+                        I-I love you like a love song, baby<br>
+                        I-I love you like a love song, baby<br>
+                        I-I love you like a love song, baby<br>
+                        And I keep hittin' repeat-peat-peat-peat-peat-peat.<br>
+                        
+
                     </div>
                     <div class="subtitle-container-icons">
                         <div class="close-subtitle"><i class="fa fa-window-close" aria-hidden="true"></i></div>
@@ -272,11 +282,11 @@
                     </div>
                 </div>
                 <div class="musicbox-surrending-circle">
-                    <div class="musicbox-middle-circle" id="play-icon"><i class="fas fa-play-circle    "></i></div>
+                    <div class="musicbox-middle-circle" id="play-icon"  onclick="playAudio (this.titel)"><i class="fas fa-play-circle    "></i></div>
                     <div class="musicbox-forward option-btn"><i class="fas fa-forward    "></i></div>
                     <div class="musicbox-backward option-btn"><i class="fas fa-backward    "></i></div>
                     <div class="musicbox-up option-btn" id="caption-btn"><i class="fas fa-closed-captioning"></i></div>
-                    <div class="musicbox-down option-btn"><i class="fab fa-youtube    "></i></div>
+                    <div class="musicbox-down option-btn" onclick="openYouTube ()"><i class="fab fa-youtube    "></i></div>
                 </div>
             </div>
         </div>
@@ -331,9 +341,13 @@
                 <div class="music-img-container">
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
-                <div class="music-detail-container">
+                <div class="music-detail-container" title="love_you_like_a_love_song">
                     <h4>love you like a love song</h4>
                     <p>Selena Gomez</p>
+                    <audio id="love_you_like_a_love_song" style="display: none;">
+                        <source src="../../assets/musics/musicplayer-onlymobile/love_you_like_a_love_song.mp3" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
         </div>
@@ -361,6 +375,27 @@
         document.querySelector(".copy-subtitle").addEventListener("click", function () {
             alert("copied")
         })
+
+        // play audio 
+        localStorage.setItem("song-play", "pause");
+        function playAudio () {
+            let validation = localStorage.getItem("song-play");
+            if (validation === "pause") {
+                localStorage.setItem("song-play", "playing");
+                document.getElementById("love_you_like_a_love_song").play();
+                
+            }
+            else if (validation === "playing") {
+                localStorage.setItem("song-play", "pause");
+                document.getElementById("love_you_like_a_love_song").pause();
+                
+            }
+        }
+
+        // function open youtube link 
+        function openYouTube () {
+            window.open("https://www.youtube.com/watch?v=1IdG-t22VmY");
+        }
     </script>
 </body>
 </html>
