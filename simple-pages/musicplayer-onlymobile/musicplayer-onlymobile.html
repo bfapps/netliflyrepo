@@ -345,7 +345,7 @@
                     <h4>love you like a love song</h4>
                     <p>Selena Gomez</p>
                     <audio id="love_you_like_a_love_song" style="display: none;">
-                        <source src="../../assets/musics/musicplayer-onlymobile/love_you_like_a_love_song.mp3" type="audio/ogg">
+                        <source src="https://ts2.tarafdari.com/contents/user221076/content-sound/01_love_you_like_a_love_song.mp3" type="audio/ogg">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -377,20 +377,20 @@
         })
 
         // play audio 
-//         localStorage.setItem("song-play", "pause");
-//         function playAudio () {
-//             let validation = localStorage.getItem("song-play");
-//             if (validation === "pause") {
-//                 localStorage.setItem("song-play", "playing");
-//                 document.getElementById("love_you_like_a_love_song").play();
+        localStorage.setItem("song-play", "pause");
+        function playAudio () {
+            let validation = localStorage.getItem("song-play");
+            if (validation === "pause") {
+                localStorage.setItem("song-play", "playing");
+                document.getElementById("love_you_like_a_love_song").play();
                 
-//             }
-//             else if (validation === "playing") {
-//                 localStorage.setItem("song-play", "pause");
-//                 document.getElementById("love_you_like_a_love_song").pause();
+            }
+            else if (validation === "playing") {
+                localStorage.setItem("song-play", "pause");
+                document.getElementById("love_you_like_a_love_song").pause();
                 
-//             }
-//         }
+            }
+        }
 
         // function open youtube link 
         function openYouTube () {
