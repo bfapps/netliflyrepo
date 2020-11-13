@@ -123,11 +123,13 @@
             width: 130px;
             height: 130px;
             font-size: 52px;
-            color: #606060;
+            color: #00dbc9;
+            cursor: pointer;
         }
         .option-btn {
             font-size: 35px;
             color: #606060;
+            cursor: pointer;
         }
         .musicbox-forward, .musicbox-backward {
            position: absolute;
@@ -135,6 +137,7 @@
            transform: translateY(-50%);
            display: grid;
            place-content: center; 
+           color: rgb(250, 44, 113);;
         }
         .musicbox-forward {
             right: 25px;
@@ -148,6 +151,7 @@
             transform: translateX(-50%);
             display: grid;
             place-content: center;
+            color: hotpink;
         }
         .musicbox-up {
             top: 25px;
@@ -170,7 +174,7 @@
             width: 65%;
             height: 50%;
             margin: 0 4px;
-            background-color: red;
+            background-color: rgb(134, 223, 1);
             /* box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.1),
             inset -2px -2px 4px #fff; */
         }
@@ -196,6 +200,7 @@
             box-shadow: 
             4px 4px 4px rgba(0, 0, 0, 0.1),
             -4px -4px 4px #fff;
+            cursor: pointer;
         }
 
         /* music box 4 */
@@ -220,7 +225,7 @@
             color: purple;
         }
         a{
-            color: #606060;
+            color: red;
         }
         @media (orientation: landscape) {
             .musicbox {
@@ -285,8 +290,8 @@
         </div>
         <div class="musicbox-container-3">
             <div class="extra-icon-holder" id="like-icon"><i class="fas fa-heart    "></i></div>
-            <div class="extra-icon-holder"><i class="fa fa-search" aria-hidden="true"></i></div>
-            <div class="extra-icon-holder" id="download-icon"><a id="download-link" href="https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"><i class="fas fa-download    "></i></a></div>
+            <div class="extra-icon-holder" style="color: rgb(151, 151, 2);"><i class="fa fa-search" aria-hidden="true"></i></div>
+            <div class="extra-icon-holder" id="download-icon"><a style="color: dodgerblue;" id="download-link" href="https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"><i class="fas fa-download    "></i></a></div>
         </div>
 
         <!-- real music box -->
