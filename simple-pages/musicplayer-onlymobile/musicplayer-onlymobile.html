@@ -301,7 +301,7 @@
 
         <!-- real music box -->
         <div class="musicbox-container-4">
-            <div class="musicbox-container-1">
+            <div class="musicbox-container-1" title="wolves" onclick="changeSong (this.title)">
                 <div class="music-img-container">
                     <img src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
@@ -341,11 +341,11 @@
                 <div class="music-img-container">
                     <img loading="lazy" src="../../assets/img/musicplayer/unnownmusic.png" alt="music image">
                 </div>
-                <div class="music-detail-container" title="love_you_like_a_love_song">
+                <div class="music-detail-container" title="love you like a love song" onclick="changeSong (this.title)">
                     <h4>love you like a love song</h4>
                     <p>Selena Gomez</p>
                     <audio id="love_you_like_a_love_song" style="display: none;">
-                        <source src="https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3" type="audio/ogg">
+                        <source src="" type="audio/ogg">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -375,23 +375,40 @@
         document.querySelector(".copy-subtitle").addEventListener("click", function () {
             alert("copied")
         })
-
-        // play audio 
+        //  changeSong
+        
+        function changeSong (title) {
+            let myAudio;
+            let totalSongs = SelenaGomez.length;       
+            for (let i = 0; i < totalSongs; i++) {
+                if (SelenaGomez[i].song === title) {
+                    audioUrl = new Audio(SelenaGomez[i].url);
+                    localStorage.setItem("audio-url", SelenaGomez[i].url);
+                    // let validation = localStorage.getItem("song-play");
+                    // if (validation === "pause") {
+                    //     localStorage.setItem("song-play", "playing");
+                    //     myAudio.play();
+                    // }
+                }
+            }
+        }
+        // play audio
+        let audioUrl = new Audio("https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"); 
         localStorage.setItem("song-play", "pause");
-        let myAudio = new Audio("https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3");
-        function playAudio () {
+        function playAudio () {    
             let validation = localStorage.getItem("song-play");
+            let url = localStorage.getItem('audio-url');
             
             if (validation === "pause") {
                 localStorage.setItem("song-play", "playing");
-                myAudio.play();
+                audioUrl.play();
                 // document.getElementById("love_you_like_a_love_song").play();
                 
             }
             else if (validation === "playing") {
                 localStorage.setItem("song-play", "pause");
                 // document.getElementById("love_you_like_a_love_song").pause();
-                myAudio.pause();
+                audioUrl.pause();
             }
         }
 
@@ -399,6 +416,12 @@
         function openYouTube () {
             window.open("https://www.youtube.com/watch?v=1IdG-t22VmY");
         }
+
+        // adressing the songs
+        const SelenaGomez = [
+            {song:"love you like a love song", url: "https://ts2.tarafdari.com/contents/user221076/content-sound/01_love_you_like_a_love_song.mp3"},
+            {song: "wolves", url: "https://dl.baarzesh.net/music/2020/8/Previous/Wolves-SELENA-GOMEZ-ft-MARSHMELLO.mp3"}
+        ];
     </script>
 </body>
 </html>
